@@ -1,7 +1,12 @@
+require "treetop"
+require "polyglot"
+
 require "boolean_simplifier/base"
 
 require "boolean_simplifier/expression_parser"
 require "boolean_simplifier/expression_simplifier"
+
+require "boolean_simplifier/grammar/boolean_expression"
 
 require "boolean_simplifier/expression"
 require "boolean_simplifier/expression/negation"

@@ -1,0 +1,71 @@
+grammar BooleanExpression
+
+  rule expression
+    space disjunctive space {
+      def to_expression
+        disjunctive.to_expression
+      end
+    }
+  end
+
+  rule disjunctive
+    a:conjunctive space "||" space b:disjunctive {
+      def to_expression
+        Disjunction.new(a.to_expression, b.to_expression)
+      end
+    } /
+    conjunctive
+  end
+
+  rule conjunctive
+    a:negative space "&&" space b:conjunctive {
+      def to_expression
+        Conjunction.new(a.to_expression, b.to_expression)
+      end
+    } /
+    negative
+  end
+
+  rule negative
+    "!" negative {
+      def to_expression
+        Negation.new(negative.to_expression)
+      end
+    } /
+    primary
+  end
+
+  rule primary
+    boolean / variable / "(" expression ")" {
+      def to_expression
+        expression.to_expression
+      end
+    }
+  end
+
+  rule boolean
+    "true" {
+      def to_expression
+        true
+      end
+    } /
+    "false" {
+      def to_expression
+        false
+      end
+    }
+  end
+
+  rule variable
+    [a-zA-Z0-9_]+ {
+      def to_expression
+        text_value
+      end
+    }
+  end
+
+  rule space
+    " "*
+  end
+
+end
