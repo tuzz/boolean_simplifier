@@ -15,3 +15,4 @@ require "boolean_simplifier/expression/disjunction"
 
 require "boolean_simplifier/rule"
 require "boolean_simplifier/rule/double_negation"
+require "boolean_simplifier/rule/complementation"
