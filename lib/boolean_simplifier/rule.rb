@@ -1,6 +1,6 @@
 module Rule
-  def modules
-    @modules ||= []
+  def collection
+    @collection ||= []
   end
 
   extend self

@@ -21,5 +21,5 @@ module Annihilator
   end
 
   extend self
-  Rule.modules << self
+  Rule.collection << self
 end

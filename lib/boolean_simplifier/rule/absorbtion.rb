@@ -24,5 +24,5 @@ module Absorbtion
   end
 
   extend self
-  Rule.modules << self
+  Rule.collection << self
 end

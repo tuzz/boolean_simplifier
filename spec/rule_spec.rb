@@ -2,10 +2,10 @@ require "spec_helper"
 
 describe Rule do
 
-  after { subject.modules.pop }
+  after { subject.collection.pop }
 
-  describe ".modules" do
-    it "returns all loaded rule modules" do
+  describe ".collection" do
+    it "returns all loaded rules" do
       pending "TODO after rules"
     end
   end
