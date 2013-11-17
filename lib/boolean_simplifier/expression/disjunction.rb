@@ -1,13 +1,11 @@
 class Disjunction < Expression
+
   def initialize(a, b)
-    @a, @b = a, b
+    @parts = [a, b]
   end
 
   def to_s
-    "#@a || #@b"
+    parts.join(" || ")
   end
 
-  def parts
-    [@a, @b]
-  end
 end

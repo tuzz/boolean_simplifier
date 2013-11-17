@@ -1,13 +1,12 @@
 class Expression
+
+  attr_accessor :parts
+
   def ==(other)
     to_s == other.to_s
   end
 
   def to_s
-    raise NotImplementedError
-  end
-
-  def parts
     raise NotImplementedError
   end
 
@@ -19,4 +18,5 @@ class Expression
       expression
     end
   end
+
 end

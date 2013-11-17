@@ -14,7 +14,7 @@ puts BooleanSimplifier.simplify("a && !a")
 # false
 
 puts BooleanSimplifier.simplify("!a || !b && (true || false)")
-# a && b
+# !(a && b)
 ```
 
 ## How it works

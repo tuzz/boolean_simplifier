@@ -1,16 +1,14 @@
 class Conjunction < Expression
+
   def initialize(a, b)
-    @a, @b = a, b
+    @parts = [a, b]
   end
 
   def to_s
-    a = bracket(@a, Disjunction)
-    b = bracket(@b, Disjunction)
+    a = bracket(parts[0], Disjunction)
+    b = bracket(parts[1], Disjunction)
 
     "#{a} && #{b}"
   end
 
-  def parts
-    [@a, @b]
-  end
 end
