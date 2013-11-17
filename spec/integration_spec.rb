@@ -11,6 +11,11 @@ describe BooleanSimplifier do
 
     BooleanSimplifier.simplify("!a || !b && (true || false)").
       should eq "!(a && b)"
+
+    pending "simplifications to fix"
+
+    BooleanSimplifier.simplify("a && b && a").
+      should eq "a && b"
   end
 
 end
