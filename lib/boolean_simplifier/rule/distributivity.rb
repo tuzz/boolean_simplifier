@@ -12,7 +12,7 @@ module Distributivity
   private
   def distribute(expr, inner, outer)
     [[0, 1], [1, 0]].each do |a, b|
-      if expr.parts[a].class == outer
+      if expr.parts[a].class == outer && trivial?(expr.parts[b])
         return outer.new(
           inner.new(expr.parts[b], expr.parts[a].parts[0]),
           inner.new(expr.parts[b], expr.parts[a].parts[1])
@@ -20,6 +20,10 @@ module Distributivity
       end
     end
     expr
+  end
+
+  def trivial?(expr)
+    !expr.respond_to?(:parts)
   end
 
   extend self

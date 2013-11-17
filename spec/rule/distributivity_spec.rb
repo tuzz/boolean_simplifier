@@ -22,17 +22,6 @@ describe Distributivity do
       Disjunction.new("x", "y"),
       Disjunction.new("x", "z")
     )
-
-    some_expr = Negation.new("a")
-    subject.simplify(
-      Conjunction.new(
-        some_expr,
-        Disjunction.new("y", "z")
-      )
-    ).should eq Disjunction.new(
-      Conjunction.new(some_expr, "y"),
-      Conjunction.new(some_expr, "z")
-    )
   end
 
   it "doesn't affect other expressions" do
@@ -40,6 +29,16 @@ describe Distributivity do
 
     some_expr = Negation.new(Negation.new("a"))
     subject.simplify(some_expr).should eq some_expr
+  end
+
+  it "does not distribute non-trivial expressions" do
+    non_trivial_expr = Negation.new("a")
+    distributable_expr = Conjunction.new(
+      non_trivial_expr,
+      Disjunction.new("y", "z")
+    )
+
+    subject.simplify(distributable_expr).should eq distributable_expr
   end
 
 end
