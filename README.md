@@ -1,5 +1,3 @@
-## Coming soon...
-
 ## Boolean Simplifier
 
 A hobbyist's attempt to simplify boolean expressions using a recursive, object-oriented strategy.
@@ -19,10 +17,20 @@ puts BooleanSimplifier.simplify("!a || !b && (true || false)")
 
 ## How it works
 
-The boolean expression is parsed using [treetop](http://treetop.rubyforge.org/) and a nested tree of objects is instantiated.
+The boolean expression is parsed and an object graph is constructed. This graph consists of instances of Negation, Conjunction, Disjunction. It also contains literal strings.
 
-A simplifier class recursively simplifies its subexpressions and finally itself.
+A set of boolean simplification rules is applied to the expression and recursively to its subexpressions. These rules take an arbitrary expression as input and return a new expression if the rule applies. If not, the original expression is returned.
 
-It simplifies itself by applying simplification rules, such as DoubleNegation and DeMorgans.
+The base case for this recursive algorithm is when no improvement is made to the given expression after iterating through all simplification rules.
 
-The base case for the recursion is if the expression is unalatered after trying all simplification rules.
+## Limitations
+
+Ruby does not implement tail recursion. Therefore, you may run into a SystemStackError when simplifying large expressions.
+
+I haven't figured out every simplification rule, or the most efficient way to apply them. Therefore, you may find that some expressions are only partially simplified.
+
+## Contribution
+
+Open an issue, or send a pull request. I'd appreciate all feedback.
+
+[Twitter](https://twitter.com/cpatuzzo)

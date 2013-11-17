@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.description = "Simplify boolean expressions"
   s.author      = "Chris Patuzzo"
   s.email       = "chris@patuzzo.co.uk"
-  s.homepage    = "https://github.com/cpatuzzo/boolean_simplifier"
+  s.homepage    = "https://github.com/tuzz/boolean_simplifier"
   s.files       = ["README.md"] + Dir["lib/**/*.*"]
 
   s.add_dependency "treetop"
