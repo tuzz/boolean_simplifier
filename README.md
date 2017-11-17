@@ -28,9 +28,3 @@ The base case for this recursive algorithm is when no improvement is made to the
 Ruby does not implement tail recursion. Therefore, you may run into a SystemStackError when simplifying large expressions.
 
 I haven't figured out every simplification rule, or the most efficient way to apply them. Therefore, you may find that some expressions are only partially simplified.
-
-## Contribution
-
-Open an issue, or send a pull request. I'd appreciate all feedback.
-
-[Twitter](https://twitter.com/cpatuzzo)
